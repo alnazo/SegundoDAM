@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">MiPrimeraApp</string>
+    <string name="txt_hint">Introduce numero</string>
+    <string name="result">Resultado</string>
+    <string name="sum">Sumar</string>
+    <string name="sub">Restar</string>
+    <string name="mul">Multiplicar</string>
+    <string name="div">Dividir</string>
+    <string name="calcButton">Calcular</string>
+</resources>
