@@ -29,6 +29,8 @@ public class XMLCreator {
 
         Element root = doc.createElement("personas");
 
+        doc.appendChild(root);
+
         Element p1 = anadirPersona(doc, "cantante", "Elsa", Genero.mujer, 18, 6, 1996, "Pamplona");
         Element p2 = anadirPersona(doc, "escritor", "Julio Verne", Genero.hombre, 8, 2, 1828, "Nantes");
 
