@@ -21,8 +21,7 @@ public class Generador {
                 cadenas = cad.split(",");
             }
 
-            //TODO
-            ProcessBuilder pbFrecuencia = new ProcessBuilder("java", "Frecuencia", "'"+Arrays.toString(cadenas)+"'");
+            ProcessBuilder pbFrecuencia = new ProcessBuilder("java", "Frecuencia", Arrays.toString(cadenas));
             pbFrecuencia.directory(pathFrecuncia);
 
             Process pFrecuencia = pbFrecuencia.start();
@@ -34,7 +33,6 @@ public class Generador {
             while ((frec = brFrecuencia.readLine()) != null) {
                 System.out.println(frec);
             }
-
 
         } catch (IOException e) {
             e.printStackTrace();

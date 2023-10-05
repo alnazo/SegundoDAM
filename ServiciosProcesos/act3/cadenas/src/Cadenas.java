@@ -20,5 +20,4 @@ public class Cadenas {
         }
         System.out.println(Arrays.toString(cadenas));
     }
-
 }
