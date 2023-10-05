@@ -23,6 +23,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        et1 = (EditText) findViewById(R.id.txt_num1);
+        et2 = (EditText) findViewById(R.id.txt_num2);
+        tv1 = (TextView) findViewById(R.id.txt_resultado);
 
         spinner = (Spinner)findViewById(R.id.spinner);
         String[] operations = {"sumar", "restar", "multiplicar", "dividir"};
@@ -37,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         int valor1_int = Integer.parseInt(valor1_String);
         int valor2_int = Integer.parseInt(valor2_String);
         String seleccion = spinner.getSelectedItem().toString();
-        System.out.println(seleccion);
+
         if(seleccion.equals("sumar")){
             int suma = valor1_int + valor2_int;
             String resultado = String.valueOf(suma);
