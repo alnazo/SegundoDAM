@@ -15,13 +15,12 @@
     </properties>
 
     <dependencies>
-        <!--
         <dependency>
             <groupId>org.netbeans.modules</groupId>
             <artifactId>org-netbeans-modules-swing-validation</artifactId>
             <version>RELEASE190</version>
         </dependency>
-        -->
+
         <dependency>
             <groupId>org.netbeans.api</groupId>
             <artifactId>org-openide-util</artifactId>
