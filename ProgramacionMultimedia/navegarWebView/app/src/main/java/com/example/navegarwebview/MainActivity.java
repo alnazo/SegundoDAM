@@ -2,16 +2,19 @@ package com.example.navegarwebview;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     private EditText et1;
     private EditText et2;
+    private TextView tv1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +23,14 @@ public class MainActivity extends AppCompatActivity {
 
         et1 = findViewById(R.id.nombreField);
         et2 = findViewById(R.id.apellidoField);
+        tv1 = (TextView) findViewById(R.id.informaticaText);
+
+        tv1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                navegar(view);
+            }
+        });
 
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {

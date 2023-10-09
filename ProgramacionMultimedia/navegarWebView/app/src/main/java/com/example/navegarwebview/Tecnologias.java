@@ -27,7 +27,7 @@ public class Tecnologias extends AppCompatActivity {
 
         sp = findViewById(R.id.spinner);
         String[] operations = {"File", "Writer", "Arrays", "Scanner"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, operations);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.spinner_desing, operations);
         sp.setAdapter(adapter);
 
         Bundle bundle = getIntent().getExtras();
