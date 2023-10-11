@@ -11,31 +11,15 @@ import java.util.Locale;
 
 public class TestView extends JFrame {
     private JPanel panel1;
-    private JTextField nombreField;
-    private JPanel userSection;
-    private JPanel passSection;
-    private JPanel submitSection;
     private JButton button1;
-    private JTextField edadField;
-    private ValidationPanel validationPanel;
+    private JButton button2;
+    private JButton button3;
 
     public TestView(){
         super("TestForm");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(300,300);
         setContentPane(panel1);
-
-        ValidationGroup group = validationPanel.getValidationGroup();
-
-        group.add(nombreField, StringValidators.REQUIRE_NON_EMPTY_STRING, new MayusculaValidator());
-        group.add(edadField, StringValidators.REQUIRE_NON_EMPTY_STRING, StringValidators.REQUIRE_VALID_INTEGER);
-
-        validationPanel.addChangeListener(new ChangeListener() {
-            @Override
-            public void stateChanged(ChangeEvent e) {
-                button1.setEnabled(validationPanel.getProblem() == null);
-            }
-        });
 
     }
 

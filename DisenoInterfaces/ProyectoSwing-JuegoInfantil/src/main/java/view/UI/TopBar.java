@@ -1,12 +1,10 @@
 package view.UI;
 
-import view.BaseView;
+import contoller.ButtonMouseListener;
 import view.profesor.LoginView;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 
 public class TopBar extends JPanel {
 
@@ -28,32 +26,7 @@ public class TopBar extends JPanel {
 
         button.setText("Area Profesor");
 
-        button.addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mousePressed(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-
-            }
-        });
+        button.addMouseListener(new ButtonMouseListener(LoginView.content(), "Area Profesor"));
 
         return button;
     }
@@ -63,32 +36,7 @@ public class TopBar extends JPanel {
 
         button.setText("<- Volver");
 
-        button.addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mousePressed(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-
-            }
-        });
+        //button.addMouseListener(new ButtonMouseListener(new BaseView().content(), "Inicio"));
 
         return button;
     }
