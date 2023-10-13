@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">tratamientoDatos</string>
+    <string name="txt_mail">Ingrese su Email</string>
+    <string name="txt_contact">Nombre del contacto</string>
+    <string name="info_contact">Datos del contacto</string>
+
+    <string name="Button">Guardar</string>
+    <string name="buscar">Buscar</string>
+    <string name="clear">Borrar</string>
+</resources>
