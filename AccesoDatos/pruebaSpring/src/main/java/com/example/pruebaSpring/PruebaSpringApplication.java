@@ -17,10 +17,8 @@ public class PruebaSpringApplication {
 
 	@GetMapping("/mensaje")
 	public ModelAndView mensaje(@RequestParam(value = "curso", defaultValue = "Segundo de DAM") String curso){
-		ModelAndView mv = new ModelAndView();
-
+		ModelAndView mv = new ModelAndView("home");
 		mv.addObject("curso", curso);
-		mv.setViewName("home.html");
 
 		return mv;
 	}
