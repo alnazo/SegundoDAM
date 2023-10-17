@@ -16,10 +16,29 @@ public class PruebaSpringApplication {
 	}
 
 	@GetMapping("/mensaje")
-	public ModelAndView mensaje(@RequestParam(value = "curso", defaultValue = "Segundo de DAM") String curso){
+	public ModelAndView mensaje(@RequestParam(value = "curso", defaultValue = "Segundo de DAM") String curso, @RequestParam(value = "cat", defaultValue = "502") String cat){
 		ModelAndView mv = new ModelAndView("home");
+		String url = "https://http.cat/images/" + cat + ".jpg";
 		mv.addObject("curso", curso);
+		mv.addObject("cat", url);
 
 		return mv;
 	}
+
+	@GetMapping("/tabla")
+	public ModelAndView tabla(){
+		ModelAndView mv = new ModelAndView("tabla");
+
+		String[][] tab = {
+			{"1", "Alma", "España"},
+			{"2", "Juan", "España"},
+			{"3", "Mariana", "Mexico"},
+			{"4", "Jesus", "Canada"}
+		};
+		mv.addObject("content", tab);
+
+
+		return mv;
+	}
+
 }
