@@ -37,7 +37,6 @@ public class PruebaSpringApplication {
 		};
 		mv.addObject("content", tab);
 
-
 		return mv;
 	}
 
