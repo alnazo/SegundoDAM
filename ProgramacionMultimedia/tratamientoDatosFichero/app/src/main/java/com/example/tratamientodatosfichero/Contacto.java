@@ -1,7 +1,5 @@
 package com.example.tratamientodatosfichero;
 
-import androidx.annotation.NonNull;
-
 public class Contacto {
     private String nombre;
     private String telefono;
