@@ -1,44 +1,47 @@
 package view;
 
+import constants.Colors;
+import main.App;
 import view.UI.CustomButtom;
 import view.UI.TopBar;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class BaseView extends JFrame{
+public class BaseView {
 
-    public static JFrame frame;
-    public static JPanel panel;
-
-    public BaseView(){
-        BaseView.panel = content();
-        setTitle("Inicio");
-        setSize(800,600);
-        setResizable(false);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setContentPane(BaseView.panel);
-
-        setVisible(true);
-    }
-
-    public JPanel content() {
+    public static JPanel content() {
         JPanel panel = new JPanel();
         panel.setLayout(new BorderLayout());
 
         JPanel centerPanel = new JPanel();
         centerPanel.setLayout(new GridBagLayout());
-        centerPanel.setBackground(new Color(125, 190, 199));
+        centerPanel.setBackground(Colors.BG_COLOR);
 
-        JButton buttonCars = new CustomButtom(255, 132, 132, 150, 150, "view/img/coche.png", "Juego Coche");
 
-        JButton buttonCard =new CustomButtom(187, 255, 133, 150, 150, "view/img/carta.png", "Juego memoria");
+        JButton buttonCars = new CustomButtom(
+                Colors.RED_CARS,
+                new Dimension(150, 150),
+                "view/img/coche.png",
+                "Juego Coche");
+
+        JButton buttonCard =new CustomButtom(
+                Colors.GREEN_CARDS,
+                new Dimension(150, 150),
+                "view/img/carta.png",
+                "Juego memoria");
 
 
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.insets = new Insets(0, 10 ,0 ,10);
 
+        gbc.gridx=0;
+        gbc.gridy=0;
         centerPanel.add(buttonCars, gbc);
+
+        gbc.gridx=1;
+        gbc.gridy=0;
         centerPanel.add(buttonCard, gbc);
 
 
@@ -47,6 +50,4 @@ public class BaseView extends JFrame{
 
         return panel;
     }
-
-
 }

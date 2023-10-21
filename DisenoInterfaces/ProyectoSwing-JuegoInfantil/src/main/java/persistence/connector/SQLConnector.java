@@ -31,16 +31,12 @@ public class SQLConnector {
      * @throws ClassNotFoundException Excepción por falta de {@link Class}.
      * @throws SQLException           Excepción por algún tramite en la hora de conectar a la Base de Datos.
      */
-    public Connection getSQLConnection() throws ClassNotFoundException, SQLException {
+    public Connection getSQLConnection() {
 
         try {
-            Class.forName(prop.getProperty(SQLConstants.DRIVER));
 
             return DriverManager.getConnection(getURL());
 
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-            throw e;
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
@@ -56,7 +52,7 @@ public class SQLConnector {
         //jdbc:sqlite:pathfile
         return new StringBuilder()
                 .append(prop.getProperty(SQLConstants.URL_PREFIX))
-                .append(prop.getProperty(SQLConstants.URL_PATH))
+                .append(App.class.getResource(prop.getProperty(SQLConstants.URL_PATH)).toString().substring(6))
                 .toString();
     }
 
@@ -72,6 +68,7 @@ public class SQLConnector {
         boolean respuesta = true;
 
         String cat = connection.getCatalog();
+
         if (cat == null) {
             respuesta = false;
         }

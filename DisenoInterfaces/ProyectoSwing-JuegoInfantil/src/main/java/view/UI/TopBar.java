@@ -1,16 +1,20 @@
 package view.UI;
 
-import contoller.ButtonMouseListener;
-import view.profesor.LoginView;
+import constants.Colors;
+import main.App;
+import view.BaseView;
+import view.access.LoginView;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class TopBar extends JPanel {
 
     public TopBar(boolean login){
         super(false);
-        setBackground(new Color(217, 217, 217));
+        setBackground(Colors.GRAY_BAR);
         setVisible(true);
         setLayout(new BorderLayout());
         if (login){
@@ -26,17 +30,31 @@ public class TopBar extends JPanel {
 
         button.setText("Area Profesor");
 
-        button.addMouseListener(new ButtonMouseListener(LoginView.content(), "Area Profesor"));
-
+        button.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                App.frame.setTitle("Area Profesor");
+                App.frame.repaint();
+                App.frame.setContentPane(LoginView.content());
+            }
+        });
         return button;
     }
 
     private JButton volverButton(){
         JButton button = new JButton();
 
-        button.setText("<- Volver");
+        button.setText("< Volver");
 
-        //button.addMouseListener(new ButtonMouseListener(new BaseView().content(), "Inicio"));
+        button.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                App.frame.setTitle("Inicio");
+                App.frame.repaint();
+                App.frame.setContentPane(BaseView.content());
+                App.frame.setVisible(true);
+            }
+        });
 
         return button;
     }

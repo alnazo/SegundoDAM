@@ -1,9 +1,13 @@
-package view.profesor;
+package view.access;
 
+import constants.Colors;
+import contoller.LoginController;
+import main.App;
 import org.netbeans.validation.api.builtin.stringvalidation.MayusculaValidator;
 import org.netbeans.validation.api.builtin.stringvalidation.StringValidators;
 import org.netbeans.validation.api.ui.ValidationGroup;
 import org.netbeans.validation.api.ui.swing.ValidationPanel;
+import view.BaseView;
 import view.UI.TopBar;
 
 import javax.swing.*;
@@ -21,17 +25,17 @@ public class LoginView extends JPanel {
 
         JPanel centerPanel = new JPanel();
         centerPanel.setLayout(new GridBagLayout());
-        centerPanel.setBackground(new Color(125, 190, 199));
+        centerPanel.setBackground(Colors.BG_COLOR);
 
         JPanel userPanel = new JPanel();
         userPanel.setLayout(new BorderLayout());
         userPanel.setPreferredSize(new Dimension(400,50));
-        userPanel.setBackground(new Color(1,1,1,0));
+        userPanel.setBackground(Colors.BG_COLOR);
 
         JPanel passPanel = new JPanel();
         passPanel.setLayout(new BorderLayout());
         passPanel.setPreferredSize(new Dimension(400,50));
-        passPanel.setBackground(new Color(1,1,1,0));
+        passPanel.setBackground(Colors.BG_COLOR);
 
         JPanel valPanel = new JPanel();
         valPanel.setLayout(new BorderLayout());
@@ -41,27 +45,27 @@ public class LoginView extends JPanel {
         GridLayout gl = new GridLayout();
         gl.setHgap(25);
         buttonsPanel.setLayout(gl);
-        buttonsPanel.setBackground(new Color(1,1,1,0));
+        buttonsPanel.setBackground(Colors.BG_COLOR);
 
+        // Content
 
+        JLabel mailLabel = new JLabel("Correo:");
+        JTextField mailField = new JTextField();
+        mailField.setToolTipText("Introduzca su usuario");
 
-        JLabel userLabel = new JLabel("Usuario");
-        JTextField userField = new JTextField();
-        userField.setToolTipText("Introduzca su usuario");
-
-        JLabel passLabel = new JLabel("Contraseña");
+        JLabel passLabel = new JLabel("Contraseña:");
         JPasswordField passField = new JPasswordField();
         passField.setToolTipText("Introduzca su contraseña");
 
         ValidationPanel validationPanel = new ValidationPanel();
-        validationPanel.setBackground(new Color(1,1,1,0));
+        validationPanel.setBackground(Colors.BG_COLOR);
 
         ValidationGroup vapgrp = validationPanel.getValidationGroup();
-        vapgrp.add(userField, StringValidators.REQUIRE_NON_EMPTY_STRING, new MayusculaValidator(), StringValidators.NO_WHITESPACE);
+        vapgrp.add(mailField, StringValidators.REQUIRE_NON_EMPTY_STRING, StringValidators.NO_WHITESPACE, StringValidators.EMAIL_ADDRESS);
         vapgrp.add(passField, StringValidators.REQUIRE_NON_EMPTY_STRING, StringValidators.NO_WHITESPACE);
 
-        userPanel.add(userLabel, BorderLayout.NORTH);
-        userPanel.add(userField, BorderLayout.SOUTH);
+        userPanel.add(mailLabel, BorderLayout.NORTH);
+        userPanel.add(mailField, BorderLayout.SOUTH);
 
         passPanel.add(passLabel, BorderLayout.NORTH);
         passPanel.add(passField, BorderLayout.SOUTH);
@@ -80,7 +84,10 @@ public class LoginView extends JPanel {
         subbmit.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                System.out.println("log");
+                String mail = mailField.getText();
+                String pass = new String(passField.getPassword());
+
+                LoginController.login(mail, pass);
             }
         });
 
@@ -88,7 +95,7 @@ public class LoginView extends JPanel {
         register.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                System.out.println("registro");
+                new RegisterView(App.frame);
             }
         });
 
@@ -96,13 +103,12 @@ public class LoginView extends JPanel {
         forgottenPass.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                System.out.println("click");
+                JOptionPane.showMessageDialog(App.frame, "Contacte con el administrador \n Tlf: 648-336-555"); //Numero de telefono indicado aleatorio
             }
         });
 
-        /*
-         * Adicion de elementos a la visualización
-         */
+        // Adicion de elementos a la visualización
+
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.fill = GridBagConstraints.VERTICAL;
         gbc.insets = new Insets(10, 0, 10, 0);
