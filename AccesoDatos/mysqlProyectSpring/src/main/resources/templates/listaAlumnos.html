@@ -1,0 +1,43 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lista alumnos</title>
+    <style>
+        table {
+           border: 1px solid #000;
+        }
+        th, td {
+           text-align: left;
+           vertical-align: top;
+           border: 1px solid #000;
+           border-spacing: 0;
+        }
+    </style>
+</head>
+<body>
+<h1>Clase 2º DAM</h1>
+<table>
+    <thead>
+    <th>ID</th>
+    <th>Nombre</th>
+    <th>Apellido</th>
+    <th>Edad</th>
+    <th>DNI</th>
+    </thead>
+    <tbody>
+    <tr th:each="alumno : ${alumnos}">
+        <td th:text="${alumno.id}"></td>
+        <td th:text="${alumno.nombre}"></td>
+        <td th:text="${alumno.apellido}"></td>
+        <td th:text="${alumno.edad}"></td>
+        <td th:text="${alumno.dni}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<a href="/nuevoalumno">Añadir alumno</a>
+</body>
+</html>
