@@ -36,7 +36,7 @@ public class AlumnoController {
     @PostMapping("/nuevoalumno")
     public RedirectView addAlum(Alumno al){
         alumnoRepository.save(al);
-        return new RedirectView("/alumno");
+        return new RedirectView("/alumnos");
     }
 
 }
