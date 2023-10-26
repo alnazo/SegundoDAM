@@ -182,7 +182,7 @@ public class InformacionProfesor extends JDialog {
                 }
             }
         });
-        
+
         // Fields a Paneles
         namePanel.add(nameLabel, BorderLayout.NORTH);
         namePanel.add(nameField, BorderLayout.SOUTH);

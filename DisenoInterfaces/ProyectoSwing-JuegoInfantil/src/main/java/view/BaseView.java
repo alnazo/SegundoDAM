@@ -1,14 +1,20 @@
 package view;
 
 import constants.Colors;
-import main.App;
 import view.UI.CustomButtom;
 import view.UI.TopBar;
+import view.juegoCartas.CardsGame;
+import view.juegoCoche.CarGame;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class BaseView {
+    public static JFrame carGame;
 
     public static JPanel content() {
         JPanel panel = new JPanel();
@@ -25,12 +31,47 @@ public class BaseView {
                 "view/img/coche.png",
                 "Juego Coche");
 
+
+        buttonCars.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                carGame = new JFrame("Juego del Coche");
+                carGame.setSize(new Dimension(1000, 800));
+                carGame.setLocationRelativeTo(null);
+                carGame.setResizable(false);
+                carGame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+                CarGame carsPanel = new CarGame();
+                carGame.add(carsPanel);
+                carGame.setVisible(true);
+
+                carGame.addWindowFocusListener(new WindowAdapter() {
+                    @Override
+                    public void windowLostFocus(WindowEvent e) {
+                        if (carsPanel.seconds > 0){
+                            carsPanel.stopMusic();
+                            carsPanel.gameCar = null;
+                            carsPanel.resetGame();
+                        }
+                    }
+                });
+
+                carsPanel.init();
+            }
+        });
+
         JButton buttonCard =new CustomButtom(
                 Colors.GREEN_CARDS,
                 new Dimension(150, 150),
                 "view/img/carta.png",
                 "Juego memoria");
 
+        buttonCard.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                new CardsGame();
+            }
+        });
 
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.fill = GridBagConstraints.HORIZONTAL;
