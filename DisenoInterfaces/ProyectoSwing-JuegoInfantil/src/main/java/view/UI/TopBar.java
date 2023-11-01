@@ -12,12 +12,12 @@ import java.awt.event.MouseEvent;
 
 public class TopBar extends JPanel {
 
-    public TopBar(boolean login){
+    public TopBar(boolean login) {
         super(false);
         setBackground(Colors.GRAY_BAR);
         setVisible(true);
         setLayout(new BorderLayout());
-        if (login){
+        if (login) {
             add(loginButton(), BorderLayout.EAST);
         } else {
             add(volverButton(), BorderLayout.WEST);
@@ -25,7 +25,7 @@ public class TopBar extends JPanel {
 
     }
 
-    private JButton loginButton(){
+    private JButton loginButton() {
         JButton button = new JButton();
 
         button.setText("Area Profesor");
@@ -41,7 +41,7 @@ public class TopBar extends JPanel {
         return button;
     }
 
-    private JButton volverButton(){
+    private JButton volverButton() {
         JButton button = new JButton();
 
         button.setText("< Volver");

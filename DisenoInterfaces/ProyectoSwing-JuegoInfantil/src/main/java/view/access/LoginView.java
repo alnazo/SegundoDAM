@@ -3,11 +3,9 @@ package view.access;
 import constants.Colors;
 import contoller.LoginController;
 import main.App;
-import org.netbeans.validation.api.builtin.stringvalidation.MayusculaValidator;
 import org.netbeans.validation.api.builtin.stringvalidation.StringValidators;
 import org.netbeans.validation.api.ui.ValidationGroup;
 import org.netbeans.validation.api.ui.swing.ValidationPanel;
-import view.BaseView;
 import view.UI.TopBar;
 
 import javax.swing.*;
@@ -19,7 +17,7 @@ import java.awt.event.MouseEvent;
 
 public class LoginView extends JPanel {
 
-    public static JPanel content(){
+    public static JPanel content() {
         JPanel panel = new JPanel();
         panel.setLayout(new BorderLayout());
 
@@ -29,12 +27,12 @@ public class LoginView extends JPanel {
 
         JPanel userPanel = new JPanel();
         userPanel.setLayout(new BorderLayout());
-        userPanel.setPreferredSize(new Dimension(400,50));
+        userPanel.setPreferredSize(new Dimension(400, 50));
         userPanel.setBackground(Colors.BG_COLOR);
 
         JPanel passPanel = new JPanel();
         passPanel.setLayout(new BorderLayout());
-        passPanel.setPreferredSize(new Dimension(400,50));
+        passPanel.setPreferredSize(new Dimension(400, 50));
         passPanel.setBackground(Colors.BG_COLOR);
 
         JPanel valPanel = new JPanel();
@@ -113,26 +111,26 @@ public class LoginView extends JPanel {
         gbc.fill = GridBagConstraints.VERTICAL;
         gbc.insets = new Insets(10, 0, 10, 0);
 
-        gbc.gridx=0;
-        gbc.gridy=0;
+        gbc.gridx = 0;
+        gbc.gridy = 0;
         centerPanel.add(userPanel, gbc);
 
-        gbc.gridx=0;
-        gbc.gridy=1;
+        gbc.gridx = 0;
+        gbc.gridy = 1;
         centerPanel.add(passPanel, gbc);
 
-        gbc.gridx=0;
-        gbc.gridy=2;
+        gbc.gridx = 0;
+        gbc.gridy = 2;
         centerPanel.add(valPanel, gbc);
 
-        gbc.gridx=0;
-        gbc.gridy=3;
+        gbc.gridx = 0;
+        gbc.gridy = 3;
         buttonsPanel.add(subbmit);
         buttonsPanel.add(register);
         centerPanel.add(buttonsPanel, gbc);
 
-        gbc.gridx=0;
-        gbc.gridy=4;
+        gbc.gridx = 0;
+        gbc.gridy = 4;
         centerPanel.add(forgottenPass, gbc);
 
 

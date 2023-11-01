@@ -9,8 +9,8 @@ public class CustomButtom extends JButton {
         setBackground(color);
         setPreferredSize(dim);
 
-        if (pathImg != null){
-            setIcon(new ImageIcon("src/main/resources/"+pathImg));
+        if (pathImg != null) {
+            setIcon(new ImageIcon("src/main/resources/" + pathImg));
         } else {
             setText(altName);
         }

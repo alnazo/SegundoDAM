@@ -4,16 +4,15 @@ import javax.sound.sampled.*;
 import java.io.IOException;
 import java.net.URL;
 
-public class SonidosCoches {
-
+public class SonidosCartas {
     Clip clip;
     URL[] listSounds = new URL[4];
 
-    public SonidosCoches() {
-        listSounds[0] = this.getClass().getResource("KnightRider.wav");
-        listSounds[1] = this.getClass().getResource("claxon.wav");
-        listSounds[2] = this.getClass().getResource("acceleration.wav");
-        listSounds[3] = this.getClass().getResource("choque.wav");
+    public SonidosCartas() {
+        listSounds[0] = this.getClass().getResource("vaca.wav");
+        listSounds[1] = this.getClass().getResource("cerdo.wav");
+        listSounds[2] = this.getClass().getResource("gallina.wav");
+        listSounds[3] = this.getClass().getResource("oveja.wav");
     }
 
     public void setFile(int i) {
@@ -34,14 +33,6 @@ public class SonidosCoches {
 
     public void play() {
         clip.start();
-    }
-
-    public void loop() {
-        clip.loop(Clip.LOOP_CONTINUOUSLY);
-    }
-
-    public void stop() {
-        clip.stop();
     }
 
 }

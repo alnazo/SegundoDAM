@@ -1,6 +1,6 @@
 package constants;
 
-import java.awt.Color;
+import java.awt.*;
 
 public class Colors {
     public static Color GRAY_BAR = new Color(217, 217, 217);

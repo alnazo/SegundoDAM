@@ -4,14 +4,14 @@ import contoller.events.CarHandlerListener;
 import view.juegoCoche.CarGame;
 
 import javax.imageio.ImageIO;
-import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 
 public class CocheJugador extends Entity {
     CarGame cg;
     CarHandlerListener chl;
-    public CocheJugador(CarGame cg, CarHandlerListener chl){
+
+    public CocheJugador(CarGame cg, CarHandlerListener chl) {
         this.cg = cg;
         this.chl = chl;
         this.width = 100;
@@ -26,14 +26,15 @@ public class CocheJugador extends Entity {
 
         setDefaultValues();
     }
-    public void setDefaultValues(){
+
+    public void setDefaultValues() {
         x = 300;
         y = 550;
         speed = 10;
 
         try {
             img = ImageIO.read(CarGame.class.getResource("car.png"));
-        } catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
@@ -42,18 +43,18 @@ public class CocheJugador extends Entity {
     public void update() {
         cg.collisionCheck.check(this);
 
-        if (!collision){
-            if (chl.leftPress){
+        if (!collision) {
+            if (chl.leftPress) {
                 if (x >= 210) x -= speed;
             }
-            if (chl.rightPress){
+            if (chl.rightPress) {
                 if (x <= 680) x += speed;
             }
         }
 
     }
 
-    public void draw(Graphics2D g2){
+    public void draw(Graphics2D g2) {
         g2.drawImage(img, x, y, width, height, null);
     }
 

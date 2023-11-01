@@ -58,7 +58,7 @@ public class RegisterView extends JDialog {
 
         JPanel labelCheckPanel = new JPanel();
         labelCheckPanel.setBackground(Colors.BG_COLOR);
-        labelCheckPanel.setPreferredSize(new Dimension(400,50));
+        labelCheckPanel.setPreferredSize(new Dimension(400, 50));
         JPanel checkPanel = new JPanel();
         checkPanel.setLayout(new GridLayout(2, 2));
         checkPanel.setPreferredSize(new Dimension(400, 100));
@@ -139,7 +139,7 @@ public class RegisterView extends JDialog {
                 String surname = surField.getText();
                 String mail = mailField.getText();
                 char[] pass = passField.getPassword();
-                if (!cb0.isSelected() && !cb1.isSelected() && !cb2.isSelected() && !cb3.isSelected()){
+                if (!cb0.isSelected() && !cb1.isSelected() && !cb2.isSelected() && !cb3.isSelected()) {
                     JOptionPane.showMessageDialog(frame, "Debe seleccionar la asignatura a impartir.");
                 } else {
                     boolean res = RegisterController.addProfesor(name, surname, mail, pass, asignaturas);

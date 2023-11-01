@@ -8,7 +8,7 @@ import java.util.List;
 
 public class RegisterController {
 
-    public static boolean addProfesor(String name, String surname, String mail, char[] rawpass, List<Asignaturas> asignaturas){
+    public static boolean addProfesor(String name, String surname, String mail, char[] rawpass, List<Asignaturas> asignaturas) {
         boolean res;
 
         Profesor prof = new Profesor(0, name, surname, asignaturas, mail, new String(rawpass));

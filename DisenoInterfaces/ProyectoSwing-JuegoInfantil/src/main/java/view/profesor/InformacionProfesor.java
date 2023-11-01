@@ -5,8 +5,6 @@ import main.App;
 import model.Asignaturas;
 import model.Profesor;
 import persistence.managerDDBB.ProfesorDAO;
-import view.BaseView;
-import view.UI.TopBar;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,7 +16,7 @@ import java.util.List;
 public class InformacionProfesor extends JDialog {
 
 
-    public InformacionProfesor(Profesor prof){
+    public InformacionProfesor(Profesor prof) {
         super(App.frame, prof.getNombre() + " " + prof.getApellido());
         setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         setResizable(false);
@@ -28,7 +26,7 @@ public class InformacionProfesor extends JDialog {
         setVisible(true);
     }
 
-    private JPanel content(Profesor prof, boolean edit_save){
+    private JPanel content(Profesor prof, boolean edit_save) {
         JPanel panel = new JPanel();
         panel.setLayout(new BorderLayout());
 
@@ -58,7 +56,7 @@ public class InformacionProfesor extends JDialog {
 
         JPanel labelCheckPanel = new JPanel();
         labelCheckPanel.setBackground(Colors.BG_COLOR);
-        labelCheckPanel.setPreferredSize(new Dimension(400,50));
+        labelCheckPanel.setPreferredSize(new Dimension(400, 50));
         JPanel checkPanel = new JPanel();
         checkPanel.setLayout(new GridLayout(Asignaturas.values().length / 2, 2));
         checkPanel.setPreferredSize(new Dimension(400, 100));
@@ -147,7 +145,7 @@ public class InformacionProfesor extends JDialog {
 
                 Profesor editProf = new Profesor(prof.getId(), name, surname, asignaturas, mail, pass);
 
-                if (prof.equals(editProf)){
+                if (prof.equals(editProf)) {
                     JOptionPane.showMessageDialog(InformacionProfesor.this, "No se han modificado ningun campo");
                     InformacionProfesor.this.setContentPane(InformacionProfesor.this.content(prof, false));
                     InformacionProfesor.this.repaint();
@@ -169,7 +167,7 @@ public class InformacionProfesor extends JDialog {
             @Override
             public void mouseClicked(MouseEvent e) {
                 int i = JOptionPane.showConfirmDialog(InformacionProfesor.this, "Esta seguro de querer eliminar su cuenta");
-                switch (i){
+                switch (i) {
                     case 0:
                         ProfesorDAO.delete(prof);
                         JOptionPane.showMessageDialog(InformacionProfesor.this, "Cuenta borrada correctamente");

@@ -15,6 +15,7 @@ import java.awt.event.WindowEvent;
 
 public class BaseView {
     public static JFrame carGame;
+    public static JFrame cardGame;
 
     public static JPanel content() {
         JPanel panel = new JPanel();
@@ -48,7 +49,7 @@ public class BaseView {
                 carGame.addWindowFocusListener(new WindowAdapter() {
                     @Override
                     public void windowLostFocus(WindowEvent e) {
-                        if (carsPanel.seconds > 0){
+                        if (carsPanel.seconds > 0) {
                             carsPanel.stopMusic();
                             carsPanel.gameCar = null;
                             carsPanel.resetGame();
@@ -60,7 +61,7 @@ public class BaseView {
             }
         });
 
-        JButton buttonCard =new CustomButtom(
+        JButton buttonCard = new CustomButtom(
                 Colors.GREEN_CARDS,
                 new Dimension(150, 150),
                 "view/img/carta.png",
@@ -69,20 +70,31 @@ public class BaseView {
         buttonCard.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                new CardsGame();
+                cardGame = new JFrame("Juego de Memoria");
+                cardGame.setSize(new Dimension(1280, 720));
+                cardGame.setResizable(false);
+                cardGame.setLocationRelativeTo(null);
+                cardGame.setUndecorated(true);
+                cardGame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+                CardsGame game = new CardsGame();
+                cardGame.add(game);
+                cardGame.setVisible(true);
+
+                game.init();
             }
         });
 
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.insets = new Insets(0, 10 ,0 ,10);
+        gbc.insets = new Insets(0, 10, 0, 10);
 
-        gbc.gridx=0;
-        gbc.gridy=0;
+        gbc.gridx = 0;
+        gbc.gridy = 0;
         centerPanel.add(buttonCars, gbc);
 
-        gbc.gridx=1;
-        gbc.gridy=0;
+        gbc.gridx = 1;
+        gbc.gridy = 0;
         centerPanel.add(buttonCard, gbc);
 
 

@@ -4,21 +4,19 @@ import contoller.events.CarHandlerListener;
 import contoller.juegoCoche.CocheContrario;
 import contoller.juegoCoche.CocheJugador;
 import contoller.juegoCoche.CollisionCheck;
-import contoller.juegoCoche.UI;
+import contoller.juegoCoche.UICars;
 import sonido.SonidosCoches;
 import view.BaseView;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.io.IOException;
 
 
 public class CarGame extends JPanel implements Runnable {
     public Thread gameCar;
 
     public int puntuacion, seconds;
-    public boolean endGame, cocheactivo;
+    public boolean endGame;
     public CollisionCheck collisionCheck = new CollisionCheck(this);
     public CocheContrario c1 = new CocheContrario(this, "secondCar.png", 120, 220, 360);
     public CocheContrario c2 = new CocheContrario(this, "thirdCar.png", 120, 220, 520);
@@ -28,7 +26,7 @@ public class CarGame extends JPanel implements Runnable {
     int width = 1000, height = 800;
     CarHandlerListener chl = new CarHandlerListener();
     CocheJugador player = new CocheJugador(this, chl);
-    UI interfaz = new UI(this);
+    UICars interfaz = new UICars(this);
 
     public CarGame() {
         addKeyListener(chl);
@@ -61,13 +59,13 @@ public class CarGame extends JPanel implements Runnable {
         seconds = 0;
         puntuacion = 0;
 
-        double drawInteval = 1000000000/60;
+        double drawInteval = 1000000000 / 60;
         double delta = 0;
         double lastTime = System.nanoTime();
         double currentTime;
         double timer = 0;
 
-        while (gameCar != null){
+        while (gameCar != null) {
 
             currentTime = System.nanoTime();
 
@@ -82,7 +80,7 @@ public class CarGame extends JPanel implements Runnable {
                 delta--;
             }
 
-            if (timer >= 1000000000){
+            if (timer >= 1000000000) {
 
                 c1.setSegs(seconds);
                 c2.setSegs(seconds);
@@ -104,7 +102,7 @@ public class CarGame extends JPanel implements Runnable {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        Graphics2D g2 = (Graphics2D)g;
+        Graphics2D g2 = (Graphics2D) g;
 
         ImageIcon imageIcon = new ImageIcon(CarGame.class.getResource("street.gif"));
         g2.drawImage(imageIcon.getImage(), 0, 0, width, height, this);
@@ -117,7 +115,7 @@ public class CarGame extends JPanel implements Runnable {
         g2.dispose();
     }
 
-    private void initCars(){
+    private void initCars() {
         if (!c1.active && !c2.active) {
             int random = (int) (Math.random() * (10 - 8)) + 1; // 1 || 2
 
@@ -131,11 +129,11 @@ public class CarGame extends JPanel implements Runnable {
         }
     }
 
-    public void endGame(){
+    public void endGame() {
         int i = JOptionPane.showConfirmDialog(this, "Quieres volver a empezar", "Fin del juego", JOptionPane.YES_NO_OPTION);
         endGame = true;
 
-        switch (i){
+        switch (i) {
             case 0:
                 resetGame();
                 run();
@@ -149,7 +147,7 @@ public class CarGame extends JPanel implements Runnable {
     }
 
 
-    public void resetGame(){
+    public void resetGame() {
         c1.setDefaultValues();
         c2.setDefaultValues();
 
@@ -157,15 +155,17 @@ public class CarGame extends JPanel implements Runnable {
         chl.leftPress = false;
     }
 
-    public void playMusic(int i){
+    public void playMusic(int i) {
         sonidos.setFile(i);
         sonidos.play();
         sonidos.loop();
     }
-    public void stopMusic(){
+
+    public void stopMusic() {
         sonidos.stop();
     }
-    public void playSE(int i){
+
+    public void playSE(int i) {
         efctos.setFile(i);
         efctos.play();
     }

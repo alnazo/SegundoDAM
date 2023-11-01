@@ -6,14 +6,14 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.io.IOException;
 
-public class CocheContrario extends Entity{
+public class CocheContrario extends Entity {
 
     CarGame cg;
     String coche;
     int posX, segs;
     public boolean active;
 
-    public CocheContrario(CarGame cg, String coche, int width, int height, int posX){
+    public CocheContrario(CarGame cg, String coche, int width, int height, int posX) {
         this.cg = cg;
         this.coche = coche;
         this.width = width;
@@ -28,7 +28,8 @@ public class CocheContrario extends Entity{
 
         setDefaultValues();
     }
-    public void setDefaultValues(){
+
+    public void setDefaultValues() {
         x = posX;
         y = -height;
         speed = 2;
@@ -36,7 +37,7 @@ public class CocheContrario extends Entity{
 
         try {
             img = ImageIO.read(CarGame.class.getResource(coche));
-        } catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
@@ -54,16 +55,16 @@ public class CocheContrario extends Entity{
         }
     }
 
-    public void draw(Graphics2D g2){
+    public void draw(Graphics2D g2) {
         if (active) {
             g2.drawImage(img, x, y, width, height, null);
         }
     }
 
-    public void setSegs(int segs){
+    public void setSegs(int segs) {
         this.segs = segs;
 
-        switch (this.segs){
+        switch (this.segs) {
             //AccelerationSystem
             case 20:
                 speed += 3;
@@ -74,7 +75,7 @@ public class CocheContrario extends Entity{
                 break;
             case 80:
             case 100:
-                speed +=10;
+                speed += 10;
                 break;
 
             //AccelerationSound
