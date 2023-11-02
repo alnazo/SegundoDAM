@@ -1,0 +1,17 @@
+#listado {
+    background-color: azure;
+    height: 750px;
+}
+    
+#listado h3{
+    padding: 10px;
+}
+
+#entrada {
+    background-color: aqua;
+    border-radius: 10px;
+}
+    
+#entrada * {
+    padding: 10px;
+}
