@@ -57,13 +57,13 @@ public class MainActivity extends AppCompatActivity {
 
     public void buscar(View view){
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "contactos", null, 1);
-        SQLiteDatabase basededatos = admin.getWritableDatabase();
+        SQLiteDatabase basededatos = admin.getReadableDatabase();
 
         String name = name_et.getText().toString();
         String surname = surname_et.getText().toString();
 
         if (!name.isEmpty() && !surname.isEmpty()){
-            Cursor fila = basededatos.rawQuery("SELECT * FROM contactos WHERE nombre="+name+" AND apellido="+surname, null);
+            Cursor fila = basededatos.rawQuery("SELECT * FROM contactos WHERE nombre='"+name+"' AND apellido='"+surname+"'", null);
 
             if(fila.moveToFirst()){
                 name_et.setText(fila.getString(0));
@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
         String tlf = tlf_et.getText().toString();
 
         if (!name.isEmpty() && !surname.isEmpty() && !tlf.isEmpty()) {
-            int cantidad = basededatos.delete("contactos", "nombre="+name+" AND apellido="+surname+" AND telefono="+tlf, null);
+            int cantidad = basededatos.delete("contactos", "nombre='"+name+"' AND apellido='"+surname+"' AND telefono='"+tlf+"'", null);
             basededatos.close();
 
             name_et.setText("");
@@ -125,13 +125,13 @@ public class MainActivity extends AppCompatActivity {
             registro.put("apellido", surname);
             registro.put("telefono", tlf);
 
-            int cantidad = basededatos.update("contactos", registro, "nombre="+name+" AND apellido="+surname+" AND telefono="+tlf, null);
+            int cantidad = basededatos.update("contactos", registro, "nombre='"+name+"' AND apellido='"+surname+"'", null);
             basededatos.close();
 
             if (cantidad == 1){
                 Toast.makeText(this, "Datos editados correctamente", Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(this, "No existe el contacto", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Solo se puede cambiar el telefono", Toast.LENGTH_SHORT).show();
             }
 
         } else {
