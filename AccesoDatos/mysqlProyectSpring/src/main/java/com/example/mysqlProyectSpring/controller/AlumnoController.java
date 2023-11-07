@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -26,6 +29,7 @@ public class AlumnoController {
     public ModelAndView listaAlumnos(@PageableDefault(size = 5) Pageable p){
         Page<Alumno> alumnos= alumnoRepository.findAll(p);
         ModelAndView mv = new ModelAndView("listaAlumnos");
+
         mv.addObject("alumnos", alumnos);
         return mv;
     }
