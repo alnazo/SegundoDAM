@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">connectionDDBB</string>
+
+    <string name="name">Nombre</string>
+    <string name="surname">Apellido</string>
+    <string name="tlf">Telefono</string>
+
+    <string name="placeholder_name">Introduzca nombre</string>
+    <string name="placeholder_surname">Introduzca apellido</string>
+    <string name="placeholder_tlf">Introduzca telefono</string>
+
+    <string name="btn_save">Guardar</string>
+    <string name="btn_load">Buscar</string>
+    <string name="btn_delete">Eliminar</string>
+    <string name="btn_edit">Editar</string>
+
+</resources>
