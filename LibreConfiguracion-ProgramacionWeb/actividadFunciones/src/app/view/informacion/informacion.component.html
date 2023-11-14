@@ -1,0 +1,20 @@
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead class="table-primary">
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Telefono</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let contacto of listadoContactos">
+                <th>{{contacto.id}}</th>
+                <td>{{contacto.nombre}}</td>
+                <td>{{contacto.apellido}}</td>
+                <td>{{contacto.telefono}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
