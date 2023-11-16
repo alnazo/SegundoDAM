@@ -1,6 +1,8 @@
 package com.example.proyectospringlogin.controller;
 
+import com.example.proyectospringlogin.model.Rol;
 import com.example.proyectospringlogin.model.Usuario;
+import com.example.proyectospringlogin.repository.RolRepository;
 import com.example.proyectospringlogin.repository.UsuarioRepository;
 import com.example.proyectospringlogin.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
+import java.util.List;
+
 @RestController
 public class UsuarioController {
 
@@ -19,6 +23,8 @@ public class UsuarioController {
     UsuarioRepository usuarioRepository;
     @Autowired
     UsuarioService usuarioService;
+    @Autowired
+    RolRepository rolRepository;
 
     @GetMapping("/")
     public ModelAndView index(){
@@ -32,13 +38,6 @@ public class UsuarioController {
         return mv;
     }
 
-    @PostMapping("/login")
-    public RedirectView loginForm(@RequestBody Usuario user){
-
-        usuarioService.loadUserByUsername(user.getEmail());
-
-        return new RedirectView("/");
-    }
 
     @GetMapping("/register")
     public ModelAndView registro(){
@@ -53,6 +52,9 @@ public class UsuarioController {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodedPassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
+
+        List<Rol> rols = rolRepository.findAll();
+        user.setRoles(rols);
 
         usuarioRepository.save(user);
 
