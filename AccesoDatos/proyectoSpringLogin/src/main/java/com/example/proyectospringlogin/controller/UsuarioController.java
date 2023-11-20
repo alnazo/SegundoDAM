@@ -7,13 +7,11 @@ import com.example.proyectospringlogin.repository.UsuarioRepository;
 import com.example.proyectospringlogin.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -53,9 +51,6 @@ public class UsuarioController {
         String encodedPassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
 
-        List<Rol> rols = rolRepository.findAll();
-        user.setRoles(rols);
-
         usuarioRepository.save(user);
 
         return new RedirectView("/");
@@ -68,4 +63,46 @@ public class UsuarioController {
         return mv;
     }
 
+
+    @GetMapping("/admin/list")
+    public ModelAndView usersList(){
+        ModelAndView mv = new ModelAndView("admin/list_users");
+        List<Usuario> usuarios = usuarioRepository.findAll();
+
+        mv.addObject("usuarios", usuarios);
+        return mv;
+    }
+
+
+    @GetMapping("/admin/editar/{id}")
+    public ModelAndView editUser(@PathVariable int id){
+        ModelAndView mv = new ModelAndView("/admin/editar");
+
+        mv.addObject("usuario", usuarioRepository.getReferenceById(id));
+        mv.addObject("roles", rolRepository.findAll());
+
+        return mv;
+    }
+
+    @PostMapping("/admin/editar/{id}")
+    public RedirectView editRedirect(@PathVariable int id, Usuario usuario, @RequestParam(name = "rolesgroup", required = false, defaultValue = "") List<Long> rolesIds){
+        Usuario user = usuarioRepository.findById(id).orElseThrow( () -> new IllegalArgumentException("Usuario no encontrado") );
+        user.setEmail(usuario.getEmail());
+
+        List<Rol> rolesExistente = user.getRoles();
+        rolesExistente.removeIf(rol -> !rolesIds.contains(rol.getId()));
+
+        for (Long roleId : rolesIds) {
+            Rol rol = rolRepository.findById(roleId).orElseThrow(() -> new IllegalArgumentException("Rol no encontrado"));
+            if (!rolesExistente.contains(rol)) {
+                rolesExistente.add(rol);
+            }
+        }
+
+        user.setRoles(rolesExistente);
+
+        usuarioRepository.save(user);
+
+        return new RedirectView("/admin/list");
+    }
 }

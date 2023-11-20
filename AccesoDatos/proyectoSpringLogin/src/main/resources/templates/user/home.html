@@ -8,7 +8,17 @@
 <body>
 <div class="container">
     <h1>Estas logueado</h1>
-    <a href="/logout">Desconectar</a>
+    <th:block th:if="${!#authentication.getAuthorities().isEmpty()}">
+        <div th:if="${#authentication.getAuthorities()[0].getAuthority().equals('ADMIN')}">
+            <h3>Eres Administrador</h3>
+            <a class="btn btn-primary" href="/admin/list">Lista usuario</a>
+        </div>
+    </th:block>
+
+    <div class="mt-2">
+        <a class="btn btn-primary" href="/logout">Desconectar</a>
+    </div>
+
 </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
