@@ -1,17 +1,19 @@
 package com.example.proyectospringlogin.controller;
 
+import com.example.proyectospringlogin.dto.UsuarioDTO;
 import com.example.proyectospringlogin.model.Rol;
 import com.example.proyectospringlogin.model.Usuario;
 import com.example.proyectospringlogin.repository.RolRepository;
 import com.example.proyectospringlogin.repository.UsuarioRepository;
 import com.example.proyectospringlogin.service.UsuarioService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -40,20 +42,33 @@ public class UsuarioController {
     @GetMapping("/register")
     public ModelAndView registro(){
         ModelAndView mv = new ModelAndView("register");
-        mv.addObject("user", new Usuario());
+        mv.addObject("Usuario", new UsuarioDTO());
 
         return mv;
     }
 
     @PostMapping("/register")
-    public RedirectView registroForm(Usuario user){
+    public RedirectView registroForm(@Valid @ModelAttribute("Usuario") UsuarioDTO usuariodto, BindingResult result){
+        Usuario newUser = usuarioRepository.findByEmail(usuariodto.getEmail()).orElse(null);
+
+        if (newUser != null && newUser.getEmail() != null && !newUser.getEmail().isEmpty()) {
+            result.rejectValue("email", null, "Ya existe este email registrado.");
+        }
+
+        if (result.hasErrors()) {
+            RedirectView rv = new RedirectView("/register?error");
+            rv.setAttributesMap(result.getModel());
+            return rv;
+        }
+
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        String encodedPassword = passwordEncoder.encode(user.getPassword());
-        user.setPassword(encodedPassword);
+        String encodedPassword = passwordEncoder.encode(usuariodto.getPassword());
+        newUser = new Usuario();
+        newUser.setEmail(usuariodto.getEmail());
+        newUser.setPassword(encodedPassword);
 
-        usuarioRepository.save(user);
-
-        return new RedirectView("/");
+        usuarioRepository.save(newUser);
+        return new RedirectView("/login?success");
     }
 
 
@@ -62,7 +77,6 @@ public class UsuarioController {
         ModelAndView mv = new ModelAndView("user/home");
         return mv;
     }
-
 
     @GetMapping("/admin/list")
     public ModelAndView usersList(){
@@ -73,9 +87,8 @@ public class UsuarioController {
         return mv;
     }
 
-
     @GetMapping("/admin/editar/{id}")
-    public ModelAndView editUser(@PathVariable int id){
+    public ModelAndView editUser(@PathVariable Long id){
         ModelAndView mv = new ModelAndView("/admin/editar");
 
         mv.addObject("usuario", usuarioRepository.getReferenceById(id));
@@ -85,7 +98,7 @@ public class UsuarioController {
     }
 
     @PostMapping("/admin/editar/{id}")
-    public RedirectView editRedirect(@PathVariable int id, Usuario usuario, @RequestParam(name = "rolesgroup", required = false, defaultValue = "") List<Long> rolesIds){
+    public RedirectView editRedirect(@PathVariable Long id, Usuario usuario, @RequestParam(name = "rolesgroup", required = false, defaultValue = "") List<Long> rolesIds){
         Usuario user = usuarioRepository.findById(id).orElseThrow( () -> new IllegalArgumentException("Usuario no encontrado") );
         user.setEmail(usuario.getEmail());
 

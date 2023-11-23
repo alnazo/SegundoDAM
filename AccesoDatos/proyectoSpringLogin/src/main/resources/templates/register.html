@@ -8,16 +8,22 @@
 <body>
     <div class="container">
         <h1>Registro</h1>
-        <form action="/register" method="post" th:object="${user}">
+        <form action="/register" method="post" th:object="${Usuario}">
             <div class="mb-3">
                 <label for="email" class="form-label">Correo:</label>
-                <input type="email" class="form-control" id="email" required th:field="*{email}">
-                <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}">El email no es valido</div>
+                <input type="email" class="form-control" id="email" required th:field="*{email}" />
+            </div>
+            <div class="mb-3" th:if="${#fields.hasErrors('email')}" th:errors="${#fields.errors('email')}"></div>
+            <div class="alert alert-danger" th:if="${param.error}">
+                Ya existe este email registrado.
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label">Contraseña:</label>
-                <input type="password" class="form-control" id="password" required th:field="*{password}">
-                <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}">La contraseña introducida no es valida</div>
+                <input type="password" class="form-control" id="password" required th:field="*{password}" />
+            </div>
+            <div class="mb-3" th:if="${#fields.hasErrors('password')}" th:errors="${#fields.errors('password')}"></div>
+            <div class="alert alert-danger" th:if="${param.error}">
+                La contraseña no cumple con el requisito minimo de 6 caracteres ó sobrepasa los 15 caracteres.
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
