@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataGridBinding.dto
 {
-    public class Cita
+    public class Cita : INotifyPropertyChanged
     {
 
         public String Nombre { get; set; }
@@ -34,6 +34,6 @@ namespace DataGridBinding.dto
             Sala = sala;
         }
 
-        public event ProgressChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }
