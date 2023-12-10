@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Hola, <th:block th:text="${username}"></th:block></title>
+        <th:block th:replace="~{components/header}"></th:block>
+    </head>
+    <body>
+        <div th:replace="~{components/navbar}"></div>
+        <div class="container mt-3">
+            <h1>Zona Usuario (WIP)</h1>
+        </div>
+    </body>
+    <th:block th:replace="~{components/footer}"></th:block>
+</html>

@@ -1,0 +1,14 @@
+<div class="mb-3 alert alert-primary" th:fragment="topic">
+    <div class="row justify-content-between">
+        <a class="col-6 h3" th:href="@{/topic/{id}(id=${topic.id})}">
+            <h3 th:text="${topic.titulo}"></h3>
+        </a>
+        <div class="col-3">
+            <div>Creado por: <span th:text="${topic.creator.nickname}"></span></div>
+            <div>Publicado: <span th:text="${#temporals.format(topic.createAt, 'dd-MM-yyyy HH:mm')}"></span></div>
+            <div th:if="${topic.comment.size()  > 0}" th:text="'Hay ' + ${topic.comment.size()} + ' comentarios'"></div>
+        </div>
+    </div>
+    <hr>
+    <p th:text="${topic.contenido}"></p>
+</div>

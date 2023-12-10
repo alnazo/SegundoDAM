@@ -1,0 +1,47 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary" th:fragment="navbar">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" th:href="@{/}">Inicio</a>
+        </li>
+      </ul>
+
+      <form th:action="@{/}" class="d-flex mb-2 mb-lg-0" role="search">
+        <th:block th:if="${param.q != null}">
+          <input class="form-control me-2" type="search" name="q" aria-label="Search" th:value="${param.q}">
+        </th:block>
+        <th:block th:unless="${param.q != null}">
+          <input class="form-control me-2" type="search" name="q" placeholder="Busca por titulo" aria-label="Search">
+        </th:block>
+        <button class="btn btn-outline-primary" type="submit">Buscar</button>
+      </form>
+
+      <ul class="navbar-nav mb-2 mb-lg-0 ms-0 ms-lg-2">
+        <th:block th:if="${#authentication.getName().equals('anonymousUser')}">
+          <li class="nav-item">
+            <a class="btn btn-primary" aria-current="page" th:href="@{/login}">Iniciar sesion</a>
+          </li>
+        </th:block>
+
+        <th:block th:unless="${#authentication.getName().equals('anonymousUser')}">
+          <div class="dropstart">
+            <button class="btn btn-secondary dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Hola, <span th:text="${#authentication.getName()}"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/user/">Perfil</a></li>
+              <li th:if="${#authentication.getAuthorities()[0].getAuthority().equals('ADMIN')}"><a class="dropdown-item" href="/admin">Administracion</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="/logout">Descoonectar</a></li>
+            </ul>
+          </div>
+        </th:block>
+      </ul>
+
+    </div>
+  </div>
+</nav>

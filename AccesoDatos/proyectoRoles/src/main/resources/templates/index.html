@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8">
+    <title>Inicio</title>
+    <th:block th:replace="~{components/header}"></th:block>
+  </head>
+  <body>
+    <div th:replace="~{components/navbar}"></div>
+    <div class="container mt-3">
+      <div class="alert alert-danger" th:if="${param.errtopic}">
+        El topic que se estaba seleccionando, no existe.
+      </div>
+
+      <div class="mb-3 text-end">
+        <a class="btn btn-primary" th:href="@{/topic/}">Crear Topic</a>
+      </div>
+      <h2 th:if="${#arrays.isEmpty(topics)}">No hay Topic activos!</h2>
+      <th:block th:each="topic : ${topics}">
+        <th:block th:replace="~{components/topic}"></th:block>
+      </th:block>
+
+    </div>
+  </body>
+  <th:block th:replace="~{components/footer}"></th:block>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro</title>
+    <th:block th:replace="~{components/header}"></th:block>
+</head>
+<body>
+<div th:replace="~{components/navbar}"></div>
+<div class="container mt-3 text-center">
+    <h2>Registro</h2>
+
+    <form class="col-md-6 m-auto" th:action="@{/registro}" method="post" th:object="${newUser}">
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Introduzca correo electronico" th:field="*{email}" />
+
+            <div class="mb-3" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+        </div>
+        <div class="mb-3">
+            <label for="nickname" class="form-label">Seudonimo / Nickname</label>
+            <input type="text" class="form-control" id="nickname" name="nickname" placeholder="Introduzca nickname" th:field="*{nickname}" />
+
+            <div class="mb-3" th:if="${#fields.hasErrors('nickname')}" th:errors="*{nickname}"></div>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Contraseña</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Introduzca contraseña" th:field="*{password}" />
+
+            <div class="mb-3" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+        </div>
+        <div class="mb-3">
+            <label for="name" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Introduzca nombre" th:field="*{name}" />
+
+            <div class="mb-3" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+        </div>
+        <div class="mb-3">
+            <label for="surname" class="form-label">Apellido</label>
+            <input type="text" class="form-control" id="surname" name="surname" placeholder="Introduzca apellido" th:field="*{surname}" />
+
+            <div class="mb-3" th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"></div>
+        </div>
+        <div class="mb-3">
+            <label for="age" class="form-label">Edad</label>
+            <input type="number" class="form-control" id="age" name="age" placeholder="Introduzca edad" th:field="*{age}" />
+
+            <div class="mb-3" th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></div>
+        </div>
+        <button type="submit" class="btn btn-primary">Registrar</button>
+    </form>
+</div>
+</body>
+<th:block th:replace="~{components/footer}"></th:block>
+</html>

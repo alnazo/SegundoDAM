@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Crear Topic</title>
+    <th:block th:replace="~{components/header}"></th:block>
+</head>
+<body>
+<div th:replace="~{components/navbar}"></div>
+<div class="container mt-3">
+    <form class="col-md-6 m-auto" th:action="@{/topic/nuevo/topic}" method="post" th:object="${topic}">
+        <div class="mb-3">
+            <label for="titulo" class="form-label">Titulo del post</label>
+            <input type="text" class="form-control" id="titulo" name="titulo" placeholder="Introduzca el titulo del post" th:field="*{titulo}" />
+        </div>
+        <div class="mb-3">
+            <label for="contenido" class="form-label">Contenido del post</label>
+            <textarea class="form-control" rows="3" id="contenido" name="contenido" th:field="*{contenido}"></textarea>
+        </div>
+        <div class="text-center">
+            <button class="btn btn-primary" type="submit">Publicar</button>
+        </div>
+    </form>
+</div>
+</body>
+<th:block th:replace="~{components/footer}"></th:block>
+</html>
