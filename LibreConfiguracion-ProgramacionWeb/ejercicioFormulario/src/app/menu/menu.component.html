@@ -1,0 +1,13 @@
+<nav class="navbar navbar-expand bg-body-tertiary">
+    <ul class="navbar-nav me-auto mb-2" id="menu">
+        <li class="nav-item" routerLink="/">
+            <span class="nav-link"><i class="bi bi-house"></i> Home</span>
+        </li>
+        <li id="acceso" *ngIf="miToken == 0" class="acceso nav-item" routerLink="/login">
+            <span class="nav-link">Acceso</span>
+        </li>
+        <li id="acceso" *ngIf="miToken != 0" class="acceso nav-item" (click)="logout()">
+            <span class="nav-link"><strong>Usuario:</strong> {{ nombreUsuario }}</span>
+        </li>
+    </ul>
+</nav>

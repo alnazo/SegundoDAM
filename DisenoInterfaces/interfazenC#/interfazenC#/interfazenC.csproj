@@ -1,0 +1,124 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <RootNamespace>interfazenC_</RootNamespace>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="App.xaml.cs" />
+    <Compile Remove="MainWindow.xaml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="assets\icons\1abrir.png" />
+    <None Remove="assets\icons\1anular.png" />
+    <None Remove="assets\icons\1barra.png" />
+    <None Remove="assets\icons\1borrar.png" />
+    <None Remove="assets\icons\1cerrar.png" />
+    <None Remove="assets\icons\1cobrar.png" />
+    <None Remove="assets\icons\1cocina.png" />
+    <None Remove="assets\icons\1comentario.png" />
+    <None Remove="assets\icons\1dinero.png" />
+    <None Remove="assets\icons\1flecha.png" />
+    <None Remove="assets\icons\1gestion.png" />
+    <None Remove="assets\icons\1imprimir.png" />
+    <None Remove="assets\icons\1mesa.png" />
+    <None Remove="assets\icons\1modificar.png" />
+    <None Remove="assets\icons\1salir.png" />
+    <None Remove="assets\icons\1usuario.png" />
+    <None Remove="assets\icons\Aagua.png" />
+    <None Remove="assets\icons\Aalmuerzo.png" />
+    <None Remove="assets\icons\Acana.png" />
+    <None Remove="assets\icons\Acaña.png" />
+    <None Remove="assets\icons\AconLeche.png" />
+    <None Remove="assets\icons\Acortado.png" />
+    <None Remove="assets\icons\Adesayuno.png" />
+    <None Remove="assets\icons\AmenuBebida.png" />
+    <None Remove="assets\icons\Amenudia.png" />
+    <None Remove="assets\icons\AmenuEspecial.png" />
+    <None Remove="assets\icons\AmenuFestivo.png" />
+    <None Remove="assets\icons\AmenuPlato.png" />
+    <None Remove="assets\icons\Asolo.png" />
+    <None Remove="assets\icons\Azumo.png" />
+    <None Remove="assets\icons\bocata.png" />
+    <None Remove="assets\icons\bolleria.png" />
+    <None Remove="assets\icons\BotonAbajo.png" />
+    <None Remove="assets\icons\BotonArriba.png" />
+    <None Remove="assets\icons\BotonIzquierdo.png" />
+    <None Remove="assets\icons\cafe.png" />
+    <None Remove="assets\icons\carnes.png" />
+    <None Remove="assets\icons\cerveza.png" />
+    <None Remove="assets\icons\chupito.png" />
+    <None Remove="assets\icons\combinados.png" />
+    <None Remove="assets\icons\copas.png" />
+    <None Remove="assets\icons\entrante.png" />
+    <None Remove="assets\icons\gestion.png" />
+    <None Remove="assets\icons\joystick.png" />
+    <None Remove="assets\icons\joystick2.png" />
+    <None Remove="assets\icons\Menu.png" />
+    <None Remove="assets\icons\paella.png" />
+    <None Remove="assets\icons\pescado.png" />
+    <None Remove="assets\icons\pizzas.png" />
+    <None Remove="assets\icons\postres.png" />
+    <None Remove="assets\icons\Refresco.png" />
+    <None Remove="assets\icons\vino.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="assets\icons\1abrir.png" />
+    <Resource Include="assets\icons\1anular.png" />
+    <Resource Include="assets\icons\1barra.png" />
+    <Resource Include="assets\icons\1borrar.png" />
+    <Resource Include="assets\icons\1cerrar.png" />
+    <Resource Include="assets\icons\1cobrar.png" />
+    <Resource Include="assets\icons\1cocina.png" />
+    <Resource Include="assets\icons\1comentario.png" />
+    <Resource Include="assets\icons\1dinero.png" />
+    <Resource Include="assets\icons\1flecha.png" />
+    <Resource Include="assets\icons\1gestion.png" />
+    <Resource Include="assets\icons\1imprimir.png" />
+    <Resource Include="assets\icons\1mesa.png" />
+    <Resource Include="assets\icons\1modificar.png" />
+    <Resource Include="assets\icons\1salir.png" />
+    <Resource Include="assets\icons\1usuario.png" />
+    <Resource Include="assets\icons\Aagua.png" />
+    <Resource Include="assets\icons\Aalmuerzo.png" />
+    <Resource Include="assets\icons\Acana.png" />
+    <Resource Include="assets\icons\AconLeche.png" />
+    <Resource Include="assets\icons\Acortado.png" />
+    <Resource Include="assets\icons\Adesayuno.png" />
+    <Resource Include="assets\icons\AmenuBebida.png" />
+    <Resource Include="assets\icons\Amenudia.png" />
+    <Resource Include="assets\icons\AmenuEspecial.png" />
+    <Resource Include="assets\icons\AmenuFestivo.png" />
+    <Resource Include="assets\icons\AmenuPlato.png" />
+    <Resource Include="assets\icons\Asolo.png" />
+    <Resource Include="assets\icons\Azumo.png" />
+    <Resource Include="assets\icons\bocata.png" />
+    <Resource Include="assets\icons\bolleria.png" />
+    <Resource Include="assets\icons\BotonAbajo.png" />
+    <Resource Include="assets\icons\BotonArriba.png" />
+    <Resource Include="assets\icons\BotonIzquierdo.png" />
+    <Resource Include="assets\icons\carnes.png" />
+    <Resource Include="assets\icons\cerveza.png" />
+    <Resource Include="assets\icons\chupito.png" />
+    <Resource Include="assets\icons\combinados.png" />
+    <Resource Include="assets\icons\copas.png" />
+    <Resource Include="assets\icons\entrante.png" />
+    <Resource Include="assets\icons\cafe.png" />
+    <Resource Include="assets\icons\gestion.png" />
+    <Resource Include="assets\icons\joystick.png" />
+    <Resource Include="assets\icons\joystick2.png" />
+    <Resource Include="assets\icons\menu.png" />
+    <Resource Include="assets\icons\paella.png" />
+    <Resource Include="assets\icons\pescado.png" />
+    <Resource Include="assets\icons\pizzas.png" />
+    <Resource Include="assets\icons\postres.png" />
+    <Resource Include="assets\icons\refresco.png" />
+    <Resource Include="assets\icons\vino.png" />
+  </ItemGroup>
+</Project>

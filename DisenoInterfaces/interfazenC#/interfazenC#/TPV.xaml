@@ -1,0 +1,341 @@
+﻿<Window x:Class="interfazenC_.TPV"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:interfazenC_"
+        mc:Ignorable="d"
+        Title="TPV" Height="450" Width="800"
+        WindowState="Maximized" ResizeMode="NoResize">
+    <Grid Background="#688699">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="200" />
+        </Grid.ColumnDefinitions>
+
+        <Grid x:Name="LeftGrid" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition Width="100" />
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" Grid.Row="0" Margin="10" Width="65" Height="65">
+                <Image Source="assets/icons/refresco.png" />
+            </Button>
+            <Button Grid.Column="1" Grid.Row="0" Margin="10" Width="65" Height="65">
+                <Image Source="assets/icons/cerveza.png" />
+            </Button>
+
+            <Button Grid.Column="0" Grid.Row="1" Margin="10" Width="65" Height="65">
+                <Image Source="assets/icons/vino.png" />
+            </Button>
+            <Button Grid.Column="1" Grid.Row="1" Margin="10" Width="65" Height="65">
+                <Image Source="assets/icons/entrante.png" />
+            </Button>
+
+            <Button Grid.Column="0" Grid.Row="2" Margin="10" Width="65" Height="65">
+                <Image Source="assets/icons/paella.png" />
+            </Button>
+            <Button Grid.Column="1" Grid.Row="2" Margin="10" Width="65" Height="65">
+                <Image Source="assets/icons/carnes.png" />
+            </Button>
+
+            <Button Grid.Column="0" Grid.Row="3" Margin="10" Width="65" Height="65">
+                <Image Source="assets/icons/pescado.png" />
+            </Button>
+            <Button Grid.Column="1" Grid.Row="3" Margin="10" Width="65" Height="65">
+                <Image Source="assets/icons/pizzas.png" />
+            </Button>
+
+            <Button Grid.Column="0" Grid.Row="4" Margin="10" Width="65" Height="65">
+                <Image Source="assets/icons/bocata.png" />
+            </Button>
+            <Button Grid.Column="1" Grid.Row="4" Margin="10" Width="65" Height="65">
+                <Image Source="assets/icons/postres.png" />
+            </Button>
+
+            <Button Grid.Column="0" Grid.Row="5" Margin="10" Width="65" Height="65">
+                <Image Source="assets/icons/menu.png" />
+            </Button>
+            <Button Grid.Column="1" Grid.Row="5" Margin="10" Width="65" Height="65">
+                <Image Source="assets/icons/cafe.png" />
+            </Button>
+
+            <Button Grid.Column="0" Grid.Row="6" Margin="10" Width="65" Height="65">
+                <Image Source="assets/icons/bolleria.png" />
+            </Button>
+            <Button Grid.Column="1" Grid.Row="6" Margin="10" Width="65" Height="65">
+                <Image Source="assets/icons/chupito.png" />
+            </Button>
+
+            <Button Grid.Column="0" Grid.Row="7" Margin="10" Width="65" Height="65">
+                <Image Source="assets/icons/copas.png" />
+            </Button>
+            <Button Grid.Column="1" Grid.Row="7" Margin="10" Width="65" Height="65">
+                <Image Source="assets/icons/combinados.png" />
+            </Button>
+
+            <Button Grid.Column="0" Grid.Row="8" Margin="10" Width="65" Height="65">
+                <Image Source="assets/icons/joystick.png" />
+            </Button>
+            <Button Grid.Column="1" Grid.Row="8" Margin="10" Width="65" Height="65">
+                <Image Source="assets/icons/joystick2.png" />
+            </Button>
+
+        </Grid>
+
+        <DockPanel LastChildFill="True" Grid.Column="1">
+            
+            <Grid x:Name="elementsSelector2" DockPanel.Dock="Bottom" Margin="25">
+                <Button Grid.Column="0" Margin="10" Width="100" Height="100" >
+                    <Image Source="assets/icons/Adesayuno.png" />
+                </Button>
+                <Button Grid.Column="1" Margin="10" Width="100" Height="100" >
+                    <Image Source="assets/icons/Aalmuerzo.png" />
+                </Button>
+                <Button Grid.Column="2" Margin="10" Width="100" Height="100" >
+                    <Image Source="assets/icons/Amenudia.png" />
+                </Button>
+                <Button Grid.Column="3" Margin="10" Width="100" Height="100" >
+                    <Image Source="assets/icons/Aagua.png" />
+                </Button>
+                <Button Grid.Column="4" Margin="10" Width="100" Height="100" >
+                    <Image Source="assets/icons/Acana.png" />
+                </Button>
+                <Button Grid.Column="5" Margin="10" Width="100" Height="100" >
+                    <Image Source="assets/icons/Asolo.png" />
+                </Button>
+                <Button Grid.Column="6" Margin="10" Width="100" Height="100" >
+                    <Image Source="assets/icons/Acortado.png" />
+                </Button>
+                <Button Grid.Column="7" Margin="10" Width="100" Height="100" >
+                    <Image Source="assets/icons/AconLeche.png" />
+                </Button>
+                <Button Grid.Column="8" Margin="10" Width="100" Height="100" >
+                    <Image Source="assets/icons/Azumo.png" />
+                </Button>
+            </Grid>
+
+            <Grid x:Name="elementsSelector" DockPanel.Dock="Bottom" Margin="25">
+                <Button Grid.Row="0" Grid.Column="0" Margin="10" Width="100" Height="100" >
+                    <Image Source="assets/icons/Adesayuno.png" />
+                </Button>
+                <Button Grid.Row="0" Grid.Column="1" Margin="10" Width="100" Height="100" >
+                    <Image Source="assets/icons/Aalmuerzo.png" />
+                </Button>
+                <Button Grid.Row="0" Grid.Column="2" Margin="10" Width="100" Height="100" >
+                    <Image Source="assets/icons/Amenudia.png" />
+                </Button>
+                <Button Grid.Row="0" Grid.Column="3" Margin="10" Width="100" Height="100" >
+                    <Image Source="assets/icons/AmenuBebida.png" />
+                </Button>
+                <Button Grid.Row="0" Grid.Column="4" Margin="10" Width="100" Height="100" >
+                    <Image Source="assets/icons/AmenuFestivo.png" />
+                </Button>
+                <Button Grid.Row="0" Grid.Column="5" Margin="10" Width="100" Height="100" >
+                    <Image Source="assets/icons/AmenuEspecial.png" />
+                </Button>
+                <Button Grid.Row="0" Grid.Column="6" Margin="10" Width="100" Height="100" >
+                    <Image Source="assets/icons/AmenuPlato.png" />
+                </Button>
+                <Button Grid.Row="0" Grid.Column="7" Margin="10" Width="100" Height="100" IsEnabled="False" />
+                <Button Grid.Row="0" Grid.Column="8" Margin="10" Width="100" Height="100" IsEnabled="False" />
+
+                <Button Grid.Row="1" Grid.Column="0" Margin="10" Width="100" Height="100" IsEnabled="False" />
+                <Button Grid.Row="1" Grid.Column="1" Margin="10" Width="100" Height="100" IsEnabled="False" />
+                <Button Grid.Row="1" Grid.Column="2" Margin="10" Width="100" Height="100" IsEnabled="False" />
+                <Button Grid.Row="1" Grid.Column="3" Margin="10" Width="100" Height="100" IsEnabled="False" />
+                <Button Grid.Row="1" Grid.Column="4" Margin="10" Width="100" Height="100" IsEnabled="False" />
+                <Button Grid.Row="1" Grid.Column="5" Margin="10" Width="100" Height="100" IsEnabled="False" />
+                <Button Grid.Row="1" Grid.Column="6" Margin="10" Width="100" Height="100" IsEnabled="False" />
+                <Button Grid.Row="1" Grid.Column="7" Margin="10" Width="100" Height="100" IsEnabled="False" />
+                <Button Grid.Row="1" Grid.Column="8" Margin="10" Width="100" Height="100" IsEnabled="False" />
+
+                <Button Grid.Row="2" Grid.Column="0" Margin="10" Width="100" Height="100" IsEnabled="False" />
+                <Button Grid.Row="2" Grid.Column="1" Margin="10" Width="100" Height="100" IsEnabled="False" />
+                <Button Grid.Row="2" Grid.Column="2" Margin="10" Width="100" Height="100" IsEnabled="False" />
+                <Button Grid.Row="2" Grid.Column="3" Margin="10" Width="100" Height="100" IsEnabled="False" />
+                <Button Grid.Row="2" Grid.Column="4" Margin="10" Width="100" Height="100" IsEnabled="False" />
+                <Button Grid.Row="2" Grid.Column="5" Margin="10" Width="100" Height="100" IsEnabled="False" />
+                <Button Grid.Row="2" Grid.Column="6" Margin="10" Width="100" Height="100" IsEnabled="False" />
+                <Button Grid.Row="2" Grid.Column="7" Margin="10" Width="100" Height="100" IsEnabled="False" />
+                <Button Grid.Row="2" Grid.Column="8" Margin="10" Width="100" Height="100" IsEnabled="False" />
+            </Grid>
+
+            <TextBlock DockPanel.Dock="Bottom" Text="Menús" FontSize="20" Height="27" FontWeight="Bold" />
+
+            <Grid DockPanel.Dock="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="0" Margin="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="25" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="50" />
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Barra" FontSize="18" Grid.Column="0" FontWeight="Bold" />
+                    <TextBlock Text="Antonio Gerente" FontSize="18" TextAlignment="Right" Grid.Column="2" FontWeight="Bold" />
+
+                    <DataGrid Grid.Row="1" Grid.ColumnSpan="3">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="E" />
+                            <DataGridTextColumn Header="C" />
+                            <DataGridTextColumn Header="Ud." />
+                            <DataGridTextColumn Header="Descripción" />
+                            <DataGridTextColumn Header="Precio" />
+                            <DataGridTextColumn Header="Total" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <TextBlock Grid.Column="0" Grid.Row="3">P1</TextBlock>
+                    <TextBlock Grid.Column="3" Grid.Row="3" HorizontalAlignment="Right" FontSize="28" FontWeight="Bold">0,00 €</TextBlock>
+                </Grid>
+
+                <Grid x:Name="calculadora" Grid.Column="1" Margin="5">
+                    
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50" />
+                        <ColumnDefinition Width="50" />
+                        <ColumnDefinition Width="50" />
+                        <ColumnDefinition Width="50" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="50" />
+                    </Grid.RowDefinitions>
+
+                    <Rectangle Width="200" Height="30" Fill="Black" Grid.ColumnSpan="4"/>
+                    <Button Grid.Column="0" Grid.Row="1" Margin="5">
+                        <TextBlock FontSize="24" FontWeight="Bold">⬆️</TextBlock>
+                    </Button>
+                    <Button Grid.Column="1" Grid.Row="1" Margin="5">
+                        <TextBlock FontSize="24" FontWeight="Bold">7</TextBlock>
+                    </Button>
+                    <Button Grid.Column="2" Grid.Row="1" Margin="5">
+                        <TextBlock FontSize="24" FontWeight="Bold">8</TextBlock>
+                    </Button>
+                    <Button Grid.Column="3" Grid.Row="1" Margin="5">
+                        <TextBlock FontSize="24" FontWeight="Bold">9</TextBlock>
+                    </Button>
+                    <Button Grid.Column="0" Grid.Row="2" Margin="5">
+                        <TextBlock FontSize="24" FontWeight="Bold">⬇️</TextBlock>
+                    </Button>
+                    <Button Grid.Column="1" Grid.Row="2" Margin="5">
+                        <TextBlock FontSize="24" FontWeight="Bold">4</TextBlock>
+                    </Button>
+                    <Button Grid.Column="2" Grid.Row="2" Margin="5">
+                        <TextBlock FontSize="24" FontWeight="Bold">5</TextBlock>
+                    </Button>
+                    <Button Grid.Column="3" Grid.Row="2" Margin="5">
+                        <TextBlock FontSize="24" FontWeight="Bold">6</TextBlock>
+                    </Button>
+                    <Button Grid.Column="0" Grid.Row="3" Margin="5">
+                        <TextBlock FontSize="24" FontWeight="Bold">+</TextBlock>
+                    </Button>
+                    <Button Grid.Column="1" Grid.Row="3" Margin="5">
+                        <TextBlock FontSize="24" FontWeight="Bold">1</TextBlock>
+                    </Button>
+                    <Button Grid.Column="2" Grid.Row="3" Margin="5">
+                        <TextBlock FontSize="24" FontWeight="Bold">2</TextBlock>
+                    </Button>
+                    <Button Grid.Column="3" Grid.Row="3" Margin="5">
+                        <TextBlock FontSize="24" FontWeight="Bold">3</TextBlock>
+                    </Button>
+                    <Button Grid.Column="0" Grid.Row="4" Margin="5">
+                        <TextBlock FontSize="24" FontWeight="Bold">-</TextBlock>
+                    </Button>
+                    <Button Grid.Column="1" Grid.Row="4" Margin="5">
+                        <TextBlock FontSize="24" FontWeight="Bold">0</TextBlock>
+                    </Button>
+                    <Button Grid.Column="2" Grid.Row="4" Margin="5">
+                        <TextBlock FontSize="24" FontWeight="Bold">,</TextBlock>
+                    </Button>
+                    <Button Grid.Column="3" Grid.Row="4" Margin="5">
+                        <TextBlock FontSize="24" FontWeight="Bold">⬅️</TextBlock>
+                    </Button>
+
+                </Grid>
+            </Grid>
+
+        </DockPanel>
+
+        <Grid x:Name="RigthGrid" Grid.Column="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition Width="100" />
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" Grid.Row="0" Margin="10" Width="65" Height="65" >
+                <Image Source="assets/icons/1mesa.png" />
+            </Button>
+            <Button Grid.Column="1" Grid.Row="0" Margin="10" Width="65" Height="65" >
+                <Image Source="assets/icons/1barra.png" />
+            </Button>
+
+            <Button Grid.Column="0" Grid.Row="1" Margin="10" Width="65" Height="65" >
+                <Image Source="assets/icons/1dinero.png" />
+            </Button>
+            <Button Grid.Column="1" Grid.Row="1" Margin="10" Width="65" Height="65" >
+                <Image Source="assets/icons/1usuario.png" />
+            </Button>
+
+            <Button Grid.Column="0" Grid.Row="2" Margin="10" Width="65" Height="65" >
+                <Image Source="assets/icons/1anular.png" />
+            </Button>
+            <Button Grid.Column="1" Grid.Row="2" Margin="10" Width="65" Height="65" >
+                <Image Source="assets/icons/1borrar.png" />
+            </Button>
+
+            <Button Grid.Column="0" Grid.Row="3" Margin="10" Width="65" Height="65" >
+                <Image Source="assets/icons/1cocina.png" />
+            </Button>
+            <Button Grid.Column="1" Grid.Row="3" Margin="10" Width="65" Height="65" >
+                <Image Source="assets/icons/1comentario.png" />
+            </Button>
+
+            <Button Grid.Column="0" Grid.Row="4" Margin="10" Width="65" Height="65" >
+                <Image Source="assets/icons/1cobrar.png" />
+            </Button>
+            <Button Grid.Column="1" Grid.Row="4" Margin="10" Width="65" Height="65" >
+                <Image Source="assets/icons/1abrir.png" />
+            </Button>
+
+            <Button Grid.Column="0" Grid.Row="5" Margin="10" Width="65" Height="65" >
+                <Image Source="assets/icons/1imprimir.png" />
+            </Button>
+            <Button Grid.Column="1" Grid.Row="5" Margin="10" Width="65" Height="65" >
+                <Image Source="assets/icons/1cerrar.png" />
+            </Button>
+
+            <Button Grid.Column="0" Grid.Row="6" Margin="10" Width="65" Height="65" >
+                <Image Source="assets/icons/1modificar.png" />
+            </Button>
+            <Button Grid.Column="1" Grid.Row="6" Margin="10" Width="65" Height="65" >
+                <Image Source="assets/icons/1flecha.png" />
+            </Button>
+
+            <Button Grid.Column="0" Grid.Row="7" Margin="10" Width="65" Height="65" >
+                <Image Source="assets/icons/1gestion.png" />
+            </Button>
+            <Button Grid.Column="1" Grid.Row="7" Margin="10" Width="65" Height="65" >
+                <Image Source="assets/icons/1salir.png" />
+            </Button>
+
+            <Button Grid.Column="0" Grid.Row="8" Grid.ColumnSpan="2" Margin="10" Width="140" Height="50" FontWeight="Bold" FontSize="20" Content="🔽 Minimizar"/>
+
+        </Grid>
+
+    </Grid>
+</Window>

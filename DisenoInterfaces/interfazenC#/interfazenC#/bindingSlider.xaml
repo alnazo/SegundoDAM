@@ -1,0 +1,19 @@
+﻿<Window x:Class="interfazenC_.bindingSlider"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:interfazenC_"
+        mc:Ignorable="d"
+        Title="bindingSlider" Height="450" Width="800">
+    <Grid>
+        <Slider Name="MiSlide" HorizontalAlignment="Left" Margin="99,55,0,0"
+            VerticalAlignment="Top" Height="24" Width="654" Value="0" Maximum="100" Minimum="0"
+            TickFrequency="1" IsSnapToTickEnabled="True" TickPlacement="TopLeft"/>
+
+        <TextBox Name="LblEjemploTexto" Text="{Binding ElementName=MiSlide, Path=Value,Mode=TwoWay}"
+            HorizontalAlignment="Center" TextAlignment="Center" Margin="0,138,0,0" TextWrapping="Wrap" 
+            FontSize="32" VerticalAlignment="Top"
+            Height="54" Width="88" FontWeight="Bold"/>
+    </Grid>
+</Window>
