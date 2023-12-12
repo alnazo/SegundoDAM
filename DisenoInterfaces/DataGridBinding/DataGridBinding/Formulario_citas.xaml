@@ -29,13 +29,13 @@
         <TextBox x:Name="nombre" Grid.Column="2" Grid.Row="1" 
                  HorizontalAlignment="Left" Height="23" Margin="0,0,0,3"
                  TextWrapping="Wrap" VerticalAlignment="Top" Width="120"
-                 Text="{Binding Path=Nombre}" />
+                 Text="{Binding Path=Nombre, NotifyOnValidationError=True,ValidatesOnDataErrors=True}" />
 
         <TextBlock Grid.Column="1" Grid.Row="2" FontWeight="Bold">Apellidos</TextBlock>
         <TextBox x:Name="apellidos" Grid.Column="2" Grid.Row="2" 
                  HorizontalAlignment="Left" Height="23" Margin="0,0,0,3"
                  TextWrapping="Wrap" VerticalAlignment="Top" Width="120" 
-                 Text="{Binding Path=Apellidos}" />
+                 Text="{Binding Path=Apellidos, NotifyOnValidationError=True,ValidatesOnDataErrors=True}" />
 
         <TextBlock Grid.Column="1" Grid.Row="3" FontWeight="Bold">Grupo</TextBlock>
         <ComboBox x:Name="grupo" Grid.Column="2" Grid.Row="3" 
@@ -51,7 +51,10 @@
                     VerticalAlignment="Top" Width="120" SelectedDate="{Binding Path=Fecha}"/>
 
         <TextBlock Grid.Column="1" Grid.Row="5" FontWeight="Bold">Ciudad</TextBlock>
-        <TextBox x:Name="ciudad" Grid.Column="2" Grid.Row="5" HorizontalAlignment="Left" Height="23" Margin="0,0,0,3" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding Path=Ciudad}" />
+        <TextBox x:Name="ciudad" Grid.Column="2" Grid.Row="5" 
+                 HorizontalAlignment="Left" Height="23" Margin="0,0,0,3" 
+                 TextWrapping="Wrap" VerticalAlignment="Top" Width="120" 
+                 Text="{Binding Path=Ciudad, NotifyOnValidationError=True,ValidatesOnDataErrors=True}" />
 
         <TextBlock Grid.Column="1" Grid.Row="6" FontWeight="Bold">Sala</TextBlock>
         <ComboBox x:Name="sala" Grid.Column="2" Grid.Row="6"
@@ -65,7 +68,7 @@
         </ComboBox>
         
         <DockPanel Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="4">
-            <Button Width="150" Height="25" Background="#80C9F0" Click="Agregar">Aceptar</Button>
+            <Button x:Name="ButtonAceptar" Width="150" Height="25" Background="#80C9F0" Click="Agregar" Validation.Error="Validation_Error">Aceptar</Button>
             <Button Width="150" Height="25" Background="#80C9F0" Click="Cancelar">Cancelar</Button>
         </DockPanel>
 

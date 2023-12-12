@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataGridBinding.dto
 {
-    public class Cita : INotifyPropertyChanged
+    public class Cita : INotifyPropertyChanged, IDataErrorInfo
     {
 
         public String Nombre { get; set; }
@@ -16,6 +16,39 @@ namespace DataGridBinding.dto
         public DateTime Fecha { get; set; }
         public String Ciudad { get; set; }
         public String Sala { get; set; }
+
+        public string this[string columnName]
+        {
+            get
+            {
+                string result = "";
+
+                if (columnName == "Nombre")
+                {
+                    if (string.IsNullOrEmpty(Nombre))
+                    {
+                        result = "Debe introducir un nombre";
+                    }
+                }
+                if (columnName == "Apellidos")
+                {
+                    if (string.IsNullOrEmpty(Apellidos))
+                    {
+                        result = "Debe introducir un apellido";
+                    }
+                }
+                if (columnName == "Ciudad")
+                {
+                    if (string.IsNullOrEmpty(Ciudad))
+                    {
+                        result = "Debe introducir una ciudad";
+                    }
+                }
+                    return result;
+            }
+        }
+
+        public string Error => throw new NotImplementedException();
 
         public Cita()
         {
