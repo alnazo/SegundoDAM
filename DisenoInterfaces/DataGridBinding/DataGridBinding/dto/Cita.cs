@@ -17,6 +17,10 @@ namespace DataGridBinding.dto
         public String Ciudad { get; set; }
         public String Sala { get; set; }
 
+        public string Error => null;
+
+        public int errores;
+
         public string this[string columnName]
         {
             get
@@ -44,11 +48,9 @@ namespace DataGridBinding.dto
                         result = "Debe introducir una ciudad";
                     }
                 }
-                    return result;
+                return result;
             }
         }
-
-        public string Error => throw new NotImplementedException();
 
         public Cita()
         {

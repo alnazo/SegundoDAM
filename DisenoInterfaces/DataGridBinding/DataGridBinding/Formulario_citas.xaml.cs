@@ -22,7 +22,6 @@ namespace DataGridBinding
     {
         public Cita cita;
         private int index;
-        private int errores;
 
         public Formulario_citas()
         {
@@ -65,22 +64,14 @@ namespace DataGridBinding
         private void Validation_Error(object sender, ValidationErrorEventArgs e)
         {
             if (e.Action == ValidationErrorEventAction.Added)
-            {
-                errores++;
-            }
+                cita.errores++;
             else
-            {
-                errores--;
-            }
+                cita.errores--;
 
-            if (errores == 0)
-            {
+            if (cita.errores == 0)
                 ButtonAceptar.IsEnabled = true;
-            }
             else
-            {
                 ButtonAceptar.IsEnabled = false;
-            }
 
         }
     }

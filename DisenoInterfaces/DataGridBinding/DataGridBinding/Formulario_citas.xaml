@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DataGridBinding"
         mc:Ignorable="d"
-        Title="Formulario_citas" Height="275" Width="400">
+        Title="Formulario_citas" Height="275" Width="400"
+        Validation.Error="Validation_Error">
     <Grid Background="#2892A1">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="25" />
@@ -68,7 +69,7 @@
         </ComboBox>
         
         <DockPanel Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="4">
-            <Button x:Name="ButtonAceptar" Width="150" Height="25" Background="#80C9F0" Click="Agregar" Validation.Error="Validation_Error">Aceptar</Button>
+            <Button x:Name="ButtonAceptar" Width="150" Height="25" Background="#80C9F0" Click="Agregar" >Aceptar</Button>
             <Button Width="150" Height="25" Background="#80C9F0" Click="Cancelar">Cancelar</Button>
         </DockPanel>
 
